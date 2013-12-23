@@ -12,11 +12,11 @@
 * [模擬回應](#mock-responses)
 * [JSONP](#jsonp)
 
-## Guidelines
+## <a name="guidelines"></a>大綱
 
-This document provides guidelines and examples for White House Web APIs, encouraging consistency, maintainability, and best practices across applications. White House APIs aim to balance a truly RESTful API interface with a positive developer experience (DX).
+這份文件提供了White House Web APIs的指引和範例，來提倡API的一致性，可管理性以及橫跨各種應用的最佳實務。White House APIs目標在於提供一個真正的Restful API介面以及良好的開發者經驗。
 
-This document borrows heavily from:
+這份文件從以下的文章引用了相當多的觀念和內容:
 * [Designing HTTP Interfaces and RESTful Web Services](http://munich2012.drupal.org/program/sessions/designing-http-interfaces-and-restful-web-services)
 * [API Facade Pattern](http://apigee.com/about/content/api-fa%C3%A7ade-pattern), by Brian Mulloy, Apigee
 * [Web API Design](http://pages.apigee.com/web-api-design-ebook.html), by Brian Mulloy, Apigee
@@ -33,41 +33,41 @@ These guidelines aim to support a truly RESTful API. Here are a few exceptions:
 ## RESTful URLs
 
 ### General guidelines for RESTful URLs
-* A URL identifies a resource.
-* URLs should include nouns, not verbs.
-* Use plural nouns only for consistency (no singular nouns).
-* Use HTTP verbs (GET, POST, PUT, DELETE) to operate on the collections and elements.
-* You shouldn’t need to go deeper than resource/identifier/resource.
-* Put the version number at the base of your URL, for example http://example.com/v1/path/to/resource.
+* A URL identifies a resource.一個URL標示著一個資源(resource)
+* URLs should include nouns, not verbs.URL應該包含名詞而非動詞
+* Use plural nouns only for consistency (no singular nouns).使用複數名詞來維持一致性(不要用單數名詞)
+* Use HTTP verbs (GET, POST, PUT, DELETE) to operate on the collections and elements.使用HTPP動詞(GET, POST,PUT, DELETE)來處理資料
+* You shouldn’t need to go deeper than resource/identifier/resource. 資源不應該包含著階層
+* Put the version number at the base of your URL, for example http://example.com/v1/path/to/resource. 在你的URL加上版號，如http://example.com/v1/path/to/resource
 * URL v. header:
     * If it changes the logic you write to handle the response, put it in the URL.
     * If it doesn’t change the logic for each response, like OAuth info, put it in the header.
 * Specify optional fields in a comma separated list.
-* Formats should be in the form of api/v2/resource/{id}.json
+* Formats should be in the form of api/v2/resource/{id}.json 資料格式應該如api/v2/resource/{id}.json
 
-### Good URL examples
-* List of magazines:
+### 良好的URL範例
+* 回傳雜誌清單:
     * GET http://www.example.gov/api/v1/magazines.json
 * Filtering is a query:
     * GET http://www.example.gov/api/v1/magazines.json?year=2011&sort=desc
     * GET http://www.example.gov/api/v1/magazines.json?topic=economy&year=2011
-* A single magazine in JSON format:
+* 回傳單一雜誌(格式為json):
     * GET http://www.example.gov/api/v1/magazines/1234.json
-* All articles in (or belonging to) this magazine:
+* 回傳所有屬於這本雜誌的文章:
     * GET http://www.example.gov/api/v1/magazines/1234/articles.json
-* All articles in this magazine in XML format:
+* 回傳所有屬於這本雜誌的文章(格式為XML)
     * GET http://example.gov/api/v1/magazines/1234/articles.xml
-* Specify optional fields in a comma separated list:
+* 指定選擇性欄位併用逗號分隔:
     * GET http://www.example.gov/api/v1/magazines/1234.json?fields=title,subtitle,date
-* Add a new article to a particular magazine:
+* 新增一篇文章至某本雜誌:
     * POST http://example.gov/api/v1/magazines/1234/articles
 
-### Bad URL examples
-* Non-plural noun:
+### 不好的URL範例
+* 非負數名詞:
     * http://www.example.gov/magazine
     * http://www.example.gov/magazine/1234
     * http://www.example.gov/publisher/magazine/1234
-* Verb in URL:
+* 在URL中使用動詞:
     * http://www.example.gov/magazine/1234/create
 * Filter outside of query string
     * http://www.example.gov/magazines/2011/desc
