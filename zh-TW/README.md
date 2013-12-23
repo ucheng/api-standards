@@ -1,10 +1,10 @@
 # White House Web API Standards
 
-* [大綱(Guidelines)](#guidelines)
+* [指導原則(Guidelines)](#guidelines)
 * [Pragmatic REST](#pragmatic-rest)
 * [RESTful URLs](#restful-urls)
 * [HTTP 動詞](#http-verbs)
-* [回傳內容(Response)](#responses)
+* [回應(Response)](#responses)
 * [錯誤處理(Error Handling)](#error-handling)
 * [版本(Versions)](#versions)
 * [資料量限制(Record Limits)](#record-limits)
@@ -12,11 +12,12 @@
 * [模擬回應(Mock Responses)](#mock-responses)
 * [JSONP](#jsonp)
 
-## <a name="guidelines"></a>大綱
+## <a name="guidelines"></a>指導原則
 
-這份文件提供了White House Web APIs的指引和範例，來提倡API的一致性，可管理性以及橫跨各種應用的最佳實務。White House APIs目標在於提供一個真正的Restful API介面以及良好的開發者經驗。
+This document provides guidelines and examples for White House Web APIs, encouraging consistency, maintainability, and best practices across applications. White House APIs aim to balance a truly RESTful API interface with a positive developer experience (DX).
+這份文件提供了White House Web APIs的準則和範例，來提倡API的一致性，可管理性以及橫跨各種應用的最佳實務。White House APIs目標在於提供一個真正的Restful API介面以及良好的開發者體驗。
 
-這份文件從以下的文章引用了相當多的觀念和內容:
+這份文件從以下的連結引用了相當多的內容:
 * [Designing HTTP Interfaces and RESTful Web Services](http://munich2012.drupal.org/program/sessions/designing-http-interfaces-and-restful-web-services)
 * [API Facade Pattern](http://apigee.com/about/content/api-fa%C3%A7ade-pattern), by Brian Mulloy, Apigee
 * [Web API Design](http://pages.apigee.com/web-api-design-ebook.html), by Brian Mulloy, Apigee
@@ -115,7 +116,7 @@ The action taken on the representation will be contextual to the media type bein
 ## Error handling
 
 Error responses should include a common HTTP status code, message for the developer, message for the end-user (when appropriate), internal error code (corresponding to some specific internally determined ID), links where developers can find more info. 
-錯誤的回傳內容應該包含一個HTTP狀態碼, 提供給開發者的訊息，提供給終端使用者的訊息(如果適合的話)，內部錯誤碼, 以及讓開發者可以找到更多資訊的連結。
+錯誤的回應應該包含一個HTTP狀態碼, 提供給開發者的訊息，提供給終端使用者的訊息(如果適合的話)，內部錯誤碼, 以及讓開發者可以找到更多資訊的連結。
 
 For example:
 
