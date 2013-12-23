@@ -116,7 +116,7 @@ The action taken on the representation will be contextual to the media type bein
 
 ## Error handling
 
-錯誤的回應應該包含一個HTTP狀態碼, 提供給開發者的訊息，提供給終端使用者的訊息(如果適合的話)，內部錯誤碼, 以及讓開發者可以找到更多資訊的連結。 
+錯誤的回應應該包含一個常見的HTTP狀態碼, 提供給開發者的訊息，提供給終端使用者的訊息(當適合的時候)，內部錯誤碼, 以及讓開發者可以找到更多資訊的連結。 
 
 Error responses should include a common HTTP status code, message for the developer, message for the end-user (when appropriate), internal error code (corresponding to some specific internally determined ID), links where developers can find more info. 
 For example:
