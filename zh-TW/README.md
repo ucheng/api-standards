@@ -1,15 +1,15 @@
 # White House Web API Standards
 
-* [Guidelines](#guidelines)
+* [大綱](#guidelines)
 * [Pragmatic REST](#pragmatic-rest)
 * [RESTful URLs](#restful-urls)
-* [HTTP Verbs](#http-verbs)
-* [Responses](#responses)
-* [Error handling](#error-handling)
-* [Versions](#versions)
-* [Record limits](#record-limits)
-* [Request & Response Examples](#request-response-examples)
-* [Mock Responses](#mock-responses)
+* [HTTP 動詞](#http-verbs)
+* [回應](#responses)
+* [錯誤處理](#error-handling)
+* [版本](#versions)
+* [資料量限制](#record-limits)
+* [請求與回應範例](#request-response-examples)
+* [模擬回應](#mock-responses)
 * [JSONP](#jsonp)
 
 ## Guidelines
