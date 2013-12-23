@@ -156,6 +156,7 @@ Use three simple, common response codes indicating (1) success, (2) failure due 
 
 Information about record limits and total available count should also be included in the response. Example:
 資料量限制和資料總數的資訊應該包含在回應裡。例如：
+
     {
         "metadata": {
             "resultset": {
