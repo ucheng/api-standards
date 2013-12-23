@@ -14,8 +14,9 @@
 
 ## <a name="guidelines"></a>指導原則
 
-This document provides guidelines and examples for White House Web APIs, encouraging consistency, maintainability, and best practices across applications. White House APIs aim to balance a truly RESTful API interface with a positive developer experience (DX).
-這份文件提供了White House Web APIs的準則和範例，來提倡API的一致性，可管理性以及橫跨各種應用的最佳實務。White House APIs目標在於提供一個真正的Restful API介面以及良好的開發者體驗。
+這份文件提供了White House Web APIs的準則和範例，來提倡API的一致性，可管理性以及橫跨各種應用的最佳實務。White House APIs目標在於提供一個真正的Restful API介面以及良好的開發者體驗。   
+This document provides guidelines and examples for White House Web APIs, encouraging consistency, maintainability, and best practices across applications. White House APIs aim to balance a truly RESTful API interface with a positive developer experience (DX). 
+
 
 這份文件從以下的連結引用了相當多的內容:
 * [Designing HTTP Interfaces and RESTful Web Services](http://munich2012.drupal.org/program/sessions/designing-http-interfaces-and-restful-web-services)
@@ -34,17 +35,17 @@ These guidelines aim to support a truly RESTful API. Here are a few exceptions:
 ## RESTful URLs
 
 ### General guidelines for RESTful URLs
-* A URL identifies a resource.一個URL標示著一個資源(resource)
-* URLs should include nouns, not verbs.URL應該包含名詞而非動詞
-* Use plural nouns only for consistency (no singular nouns).使用複數名詞來維持一致性(不要用單數名詞)
-* Use HTTP verbs (GET, POST, PUT, DELETE) to operate on the collections and elements.使用HTPP動詞(GET, POST,PUT, DELETE)來處理資料
-* You shouldn’t need to go deeper than resource/identifier/resource. 資源不應該包含著階層
-* Put the version number at the base of your URL, for example http://example.com/v1/path/to/resource. 在你的URL加上版號，如http://example.com/v1/path/to/resource
+* 一個URL標示著一個資源(resource)。 A URL identifies a resource.
+* URL應該包含名詞而非動詞。URLs should include nouns, not verbs.
+* 使用複數名詞來維持一致性(不要用單數名詞)。Use plural nouns only for consistency (no singular nouns).
+* 使用HTTP動詞(GET, POST,PUT, DELETE)來處理資料。Use HTTP verbs (GET, POST, PUT, DELETE) to operate on the collections and elements.
+* 資源的檢索最多兩層。You shouldn’t need to go deeper than resource/identifier/resource. 
+* 在你的URL加上版號。Put the version number at the base of your URL, for example http://example.com/v1/path/to/resource. 
 * URL v. header:
     * If it changes the logic you write to handle the response, put it in the URL.
     * If it doesn’t change the logic for each response, like OAuth info, put it in the header.
 * Specify optional fields in a comma separated list.
-* Formats should be in the form of api/v2/resource/{id}.json 資料格式應該如api/v2/resource/{id}.json
+* 資料格式應該如api/v2/resource/{id}.json Formats should be in the form of api/v2/resource/{id}.json 
 
 ### 良好的URL範例
 * 回傳雜誌清單:
@@ -89,7 +90,7 @@ The action taken on the representation will be contextual to the media type bein
 
 ## Responses
 
-* No values in keys 索引鍵不應包含值
+* 索引鍵不應包含值。No values in keys 
 * No internal-specific names (e.g. "node" and "taxonomy term")
 * Metadata should only contain direct properties of the response set, not properties of the members of the response set
 
@@ -115,9 +116,9 @@ The action taken on the representation will be contextual to the media type bein
 
 ## Error handling
 
-Error responses should include a common HTTP status code, message for the developer, message for the end-user (when appropriate), internal error code (corresponding to some specific internally determined ID), links where developers can find more info. 
-錯誤的回應應該包含一個HTTP狀態碼, 提供給開發者的訊息，提供給終端使用者的訊息(如果適合的話)，內部錯誤碼, 以及讓開發者可以找到更多資訊的連結。
+錯誤的回應應該包含一個HTTP狀態碼, 提供給開發者的訊息，提供給終端使用者的訊息(如果適合的話)，內部錯誤碼, 以及讓開發者可以找到更多資訊的連結。 
 
+Error responses should include a common HTTP status code, message for the developer, message for the end-user (when appropriate), internal error code (corresponding to some specific internally determined ID), links where developers can find more info. 
 For example:
 
     {
@@ -130,8 +131,9 @@ For example:
        http://drupal.org/node/444444",
     }
 
+
+使用三個簡單，常見的回應狀態碼來表示(1)成功, (2)因為用戶端的問題而導致的失敗, (3)因為伺服器端的問題而導致的失敗。
 Use three simple, common response codes indicating (1) success, (2) failure due to client-side problem, (3) failure due to server-side problem:
-使用三個簡單，一般的回應狀態碼來表示(1)成功, (2)因為用戶端的問題而導致的失敗, (3)因為伺服器端的問題而導致的失敗:
 
 * 200 - OK
 * 400 - Bad Request
@@ -140,23 +142,23 @@ Use three simple, common response codes indicating (1) success, (2) failure due 
 
 ## Versions
 
-* Never release an API without a version number.絕對不要釋出一個沒有版號的API
-* Versions should be integers, not decimal numbers, prefixed with ‘v’. For example: 版本必須是整數，不可為浮點數，並前以v為前綴字。例如:
+* 絕對不要釋出一個沒有版號的API。Never release an API without a version number.
+* 版本必須是整數，不可為浮點數，並前以v為前綴字。Versions should be integers, not decimal numbers, prefixed with ‘v’. For example: 
     * Good: v1, v2, v3
     * Bad: v-1.1, v1.2, 1.3
-* Maintain APIs at least one version back. 保持維護至少至前一個版本
+* 維護至少至前一個版本的API。 Maintain APIs at least one version back. 
 
 
 ## Record limits
 
-* If no limit is specified, return results with a default limit. 如果沒有指定限制，則回傳預設的資料量限制。
+* 如果沒有指定限制，則回傳預設的資料量限制。If no limit is specified, return results with a default limit. 
 * To get records 51 through 75 do this:
     * http://example.gov/magazines?limit=25&offset=50
     * offset=50 means, ‘skip the first 50 records’
     * limit=25 means, ‘return a maximum of 25 records’
 
+資料量限制和資料總數的資訊應該包含在回應裡。
 Information about record limits and total available count should also be included in the response. Example:
-資料量限制和資料總數的資訊應該包含在回應裡。例如：
 
     {
         "metadata": {
@@ -257,10 +259,13 @@ Example: Create – POST  http://example.gov/api/v1/magazines/[id]/articles
 
 
 ## Mock Responses
+在測試的伺服器上建議每個資源都能接受一個模擬的參數。當傳遞這個參數時，應該回傳一個模擬的回應(略過後端)。
 It is suggested that each resource accept a 'mock' parameter on the testing server. Passing this parameter should return a mock data response (bypassing the backend).
 
+在開發初期實作這個功能能夠確保API表現一致的行為，並支援測試驅動開發(TDD)的開發方法。
 Implementing this feature early in development ensures that the API will exhibit consistent behavior, supporting a test driven development methodology.
 
+注意: 如果模擬參數包含在一個針對正式環境的請求中，應該要回傳錯誤。
 Note: If the mock parameter is included in a request to the production environment, an error should be raised.
 
 
