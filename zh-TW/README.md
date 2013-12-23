@@ -4,7 +4,7 @@
 * [Pragmatic REST](#pragmatic-rest)
 * [RESTful URLs](#restful-urls)
 * [HTTP 動詞](#http-verbs)
-* [回應](#responses)
+* [回傳內容](#responses)
 * [錯誤處理](#error-handling)
 * [版本](#versions)
 * [資料量限制](#record-limits)
@@ -88,13 +88,13 @@ The action taken on the representation will be contextual to the media type bein
 
 ## Responses
 
-* No values in keys
+* No values in keys 索引鍵不應包含值
 * No internal-specific names (e.g. "node" and "taxonomy term")
 * Metadata should only contain direct properties of the response set, not properties of the members of the response set
 
-### Good examples
+### 良好的範例
 
-No values in keys:
+索引鍵不包含值:
 
     "tags": [
       {"id": "125", "name": "Environment"},
@@ -102,9 +102,9 @@ No values in keys:
     ],
 
 
-### Bad examples
+### 不好的範例
 
-Values in keys:
+索引鍵包含值:
 
     "tags": [
       {"125": "Environment"},
@@ -114,7 +114,10 @@ Values in keys:
 
 ## Error handling
 
-Error responses should include a common HTTP status code, message for the developer, message for the end-user (when appropriate), internal error code (corresponding to some specific internally determined ID), links where developers can find more info. For example:
+Error responses should include a common HTTP status code, message for the developer, message for the end-user (when appropriate), internal error code (corresponding to some specific internally determined ID), links where developers can find more info. 
+錯誤的回傳內容應該包含一個HTTP狀態碼, 提供給開發者的訊息，提供給終端使用者的訊息(如果適合的話)，內部錯誤碼, 以及讓開發者可以找到更多資訊的連結。
+
+For example:
 
     {
       "status" : 400,
@@ -127,6 +130,8 @@ Error responses should include a common HTTP status code, message for the develo
     }
 
 Use three simple, common response codes indicating (1) success, (2) failure due to client-side problem, (3) failure due to server-side problem:
+使用三個簡單，一般的回應狀態碼來表示(1)成功, (2)因為用戶端的問題而導致的失敗, (3)因為伺服器端的問題而導致的失敗:
+
 * 200 - OK
 * 400 - Bad Request
 * 500 - Internal Server Error
@@ -134,23 +139,23 @@ Use three simple, common response codes indicating (1) success, (2) failure due 
 
 ## Versions
 
-* Never release an API without a version number.
-* Versions should be integers, not decimal numbers, prefixed with ‘v’. For example:
+* Never release an API without a version number.絕對不要釋出一個沒有版號的API
+* Versions should be integers, not decimal numbers, prefixed with ‘v’. For example: 版本必須是整數，不可為浮點數，並前以v為前綴字。例如:
     * Good: v1, v2, v3
     * Bad: v-1.1, v1.2, 1.3
-* Maintain APIs at least one version back.
+* Maintain APIs at least one version back. 保持維護至少至前一個版本
 
 
 ## Record limits
 
-* If no limit is specified, return results with a default limit.
+* If no limit is specified, return results with a default limit. 如果沒有指定限制，則回傳預設的資料量限制。
 * To get records 51 through 75 do this:
     * http://example.gov/magazines?limit=25&offset=50
     * offset=50 means, ‘skip the first 50 records’
     * limit=25 means, ‘return a maximum of 25 records’
 
 Information about record limits and total available count should also be included in the response. Example:
-
+資料量限制和資料總數的資訊應該包含在回應裡。例如：
     {
         "metadata": {
             "resultset": {
