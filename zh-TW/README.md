@@ -4,7 +4,7 @@ White House Web API Standards
 * [指導原則(Guidelines)](#guidelines)
 * [Pragmatic REST](#pragmatic-rest)
 * [RESTful URLs](#restful-urls)
-* [HTTP 動詞](#http-verbs)
+* [HTTP 方法](#http-verbs)
 * [回應(Response)](#responses)
 * [錯誤處理(Error Handling)](#error-handling)
 * [版本(Versions)](#versions)
