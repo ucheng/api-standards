@@ -39,7 +39,7 @@ These guidelines aim to support a truly RESTful API. Here are a few exceptions:
 * **一個URL標示著一個資源(resource)。** A URL identifies a resource.
 * **URL應該包含名詞而非動詞。** URLs should include nouns, not verbs.
 * **使用複數名詞來維持一致性(不要用單數名詞)。** Use plural nouns only for consistency (no singular nouns).
-* **使用HTTP動詞(GET, POST,PUT, DELETE)來操作資料。**Use HTTP verbs (GET, POST, PUT, DELETE) to operate on the collections and elements.
+* **使用HTTP方法(GET, POST,PUT, DELETE)來操作資料。**Use HTTP verbs (GET, POST, PUT, DELETE) to operate on the collections and elements.
 * **資源的檢索最多兩層。**You shouldn’t need to go deeper than resource/identifier/resource. 
 * **在你的URL加上版號。**Put the version number at the base of your URL, for example http://example.com/v1/path/to/resource. 
 * URL v. header:
