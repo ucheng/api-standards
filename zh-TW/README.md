@@ -302,5 +302,5 @@ http://stackoverflow.com/questions/2067472/what-is-jsonp-all-about?answertab=vot
 
 <a name="note-1"></a>註1:在URL加上版號的方法，有人支持也有人反對:    
     * http://stackoverflow.com/questions/389169    
-    * http://stackoverflow.com/questions/972226
+    * http://stackoverflow.com/questions/972226    
     * [Web API Design](http://pages.apigee.com/web-api-design-ebook.html), by Brian Mulloy, Apigee
