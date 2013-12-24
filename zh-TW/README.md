@@ -41,7 +41,11 @@ These guidelines aim to support a truly RESTful API. Here are a few exceptions:
 * **使用複數名詞來維持一致性(不要用單數名詞)。** Use plural nouns only for consistency (no singular nouns).
 * **使用HTTP方法(GET, POST,PUT, DELETE)來操作資料。**Use HTTP verbs (GET, POST, PUT, DELETE) to operate on the collections and elements.
 * **資源的檢索最多兩層。**You shouldn’t need to go deeper than resource/identifier/resource. 
-* **在你的URL加上版號。**Put the version number at the base of your URL, for example http://example.com/v1/path/to/resource. 
+* **在你的URL加上版號。**Put the version number at the base of your URL, for example http://example.com/v1/path/to/resource.   
+譯注:這點其實是有討論空間的，在URL加上版號的方法，有人贊成也有人反對:    
+    * http://stackoverflow.com/questions/389169    
+    * http://stackoverflow.com/questions/972226    
+
 * URL v. header:
     * If it changes the logic you write to handle the response, put it in the URL.
     * If it doesn’t change the logic for each response, like OAuth info, put it in the header.
