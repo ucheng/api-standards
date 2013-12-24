@@ -45,7 +45,6 @@ These guidelines aim to support a truly RESTful API. Here are a few exceptions:
 譯注:這點其實是有討論空間的，在URL加上版號的方法，有人贊成也有人反對:    
     * http://stackoverflow.com/questions/389169    
     * http://stackoverflow.com/questions/972226    
-
 * URL v. header:
     * If it changes the logic you write to handle the response, put it in the URL.
     * If it doesn’t change the logic for each response, like OAuth info, put it in the header.
